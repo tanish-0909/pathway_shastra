@@ -1,0 +1,183 @@
+version: '3.8'
+
+# ===========================
+# Financial Intelligence Platform
+# WITH REMOTE MONGODB (Atlas/GCP)
+# ===========================
+# Services:
+# - Infrastructure: Redis (for caching/dedup)
+# - News Pipeline: Scraper -> Enrichment Pipeline -> LLM Worker
+# - FastAPI Backend: REST API for frontend/clients
+# - MongoDB: EXTERNAL (configured via MONGODB_URI env var)
+# ===========================
+
+services:
+  # ==========================================
+  # INFRASTRUCTURE LAYER
+  # ==========================================
+  
+  # Redis - Caching, deduplication, Bloom filters
+  redis:
+    image: redis:7.2-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes --maxmemory 4gb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data:/data
+    networks:
+      - intelligence_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  # ==========================================
+  # MONGODB - EXTERNAL (REMOTE)
+  # ==========================================
+  # Local MongoDB container is DISABLED
+  # Configure MONGODB_URI in backend/.env to point to:
+  # - MongoDB Atlas: mongodb+srv://...
+  # - GCP Marketplace MongoDB
+  # - Another VM with MongoDB
+  # ==========================================
+
+  # ==========================================
+  # NEWS INTELLIGENCE PIPELINE
+  # ==========================================
+  
+  # Layer 1: News Scraper - Metadata extraction
+  news-scraper:
+    build:
+      context: ./backend/services/news-scraper
+      dockerfile: Dockerfile
+    container_name: news-scraper
+    depends_on:
+      redis:
+        condition: service_healthy
+    env_file:
+      - ./backend/.env
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - SCRAPE_INTERVAL=300
+      - TEST_COMPANY=all
+      - MAX_CONCURRENT_STRATEGIES=10
+    volumes:
+      - ./backend/services/news-scraper:/app
+    networks:
+      - intelligence_network
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 512M
+
+  # Layer 2: Enrichment Pipeline - Content fetching, sentiment, dedup
+  enrichment-pipeline:
+    build:
+      context: ./backend/services/enrichment-pipeline
+      dockerfile: Dockerfile
+    container_name: enrichment-pipeline
+    depends_on:
+      redis:
+        condition: service_healthy
+    env_file:
+      - ./backend/.env
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - MAX_CONCURRENT_FETCHES=20
+      - POLL_INTERVAL=5
+    volumes:
+      - ./backend/services/enrichment-pipeline:/app
+    ports:
+      - "8080:8080"
+    networks:
+      - intelligence_network
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+        reservations:
+          memory: 2G
+
+  # Layer 3: LLM Worker - Summarization & impact assessment
+  llm-worker:
+    build:
+      context: ./backend/services/llm-worker
+      dockerfile: Dockerfile
+    container_name: llm-worker
+    env_file:
+      - ./backend/.env
+    environment:
+      - RATE_LIMIT_RPM=2000
+      - MAX_CONCURRENT_REQUESTS=50
+      - POLL_INTERVAL=5
+    volumes:
+      - ./backend/services/llm-worker:/app
+    networks:
+      - intelligence_network
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+        reservations:
+          memory: 1G
+
+  # ==========================================
+  # API LAYER
+  # ==========================================
+  
+  # FastAPI Backend - REST API
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: api
+    env_file:
+      - ./backend/.env
+    environment:
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      - CORS_ORIGINS=http://localhost:5173,http://localhost:3000
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    networks:
+      - intelligence_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 512M
+
+# ==========================================
+# NETWORKS
+# ==========================================
+
+networks:
+  intelligence_network:
+    driver: bridge
+
+# ==========================================
+# VOLUMES (Persistent Storage)
+# ==========================================
+
+volumes:
+  redis_data:

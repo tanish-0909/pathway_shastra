@@ -1,0 +1,9 @@
+{
+  "video_url": "https://files2.heygen.ai/aws_pacific/avatar_tmp/48c167804ede47c396974f37f2c53c8c/c5c2523cd5184d9c8117713b9afa1014.mp4?Expires=1765400786&Signature=c8dbITXv-Vi6FBnA11QpzDT-3F9Fmxp~6~wHe6GAM4T5sj3dDfEsRIhZBf8RdivBeF9RieEFhiqvTRw6NToijJlvztnCNNJ8vQyH-SOIlnEw-hZcQv8WgG1x6cz34gzUFFFKKeIy4HN6bG-IhR977Ivam1om44hUFDy~j3j~bNlPnqGwlSuo9GrTHEfUkb5StOnmS7LruijFhpieebLJdQ1zPaXDH464q-mv8ZR0k1VUDqac0Vp2bCA0bm9Z1R7Shr2BYkp79R9WnpmfTm3O~WyTPOPSjGuP8PYL3qbnQzLFwyVYGS9xeON6cCNGMJgJb2ZEGiB2ZitszQBTgPlygQ__&Key-Pair-Id=K38HBHX5LX3X2H",
+  "thumbnail_url": "https://files2.heygen.ai/aws_pacific/avatar_tmp/48c167804ede47c396974f37f2c53c8c/c5c2523cd5184d9c8117713b9afa1014.jpeg?Expires=1765400786&Signature=k9jHZzCfbn05Mkoj8gk~5LV~7w7TUwNUU0runwlxiENFZEcnjFtvjem~sddLNqgbvMGjyq~~jmLBtKcCPKuXZs7Kkqdcbk5fink-13uGRalSHmZYI-RtgATHXBQDNbaXuheAJQDT1duQG0o0Id10dNH~xHmxldXCNcQbAZ-tyFyXpfurJUT0DgpIYA6TbEfwIUv3z1XSzv3i0qyMwvbNTXKLi8ibxNpBD-1UWQWh54jsEUsBL5eda4pLylQte9n2t2xWATBzZ0JHWyAzsRK21REpVnSThOe9raKAGwYnag6xXQzp8xmN9feWpRlOiqIazFJaZCN2CEGMsmsO-4EGtQ__&Key-Pair-Id=K38HBHX5LX3X2H",
+  "title": "Daily Market Briefing",
+  "subtitle": "Generated on December 04, 2025",
+  "generated_at": "2025-12-04T02:36:29.249893",
+  "status": "failed",
+  "error": "Failed to upload background image: 401 Client Error: UNAUTHORIZED for url: https://upload.heygen.com/v1/asset"
+}

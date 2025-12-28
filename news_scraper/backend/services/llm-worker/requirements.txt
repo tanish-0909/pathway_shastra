@@ -1,0 +1,3 @@
+# Native async worker - high throughput summarization
+google-generativeai
+pymongo

@@ -1,0 +1,11 @@
+aiohttp
+beautifulsoup4
+googlenewsdecoder
+lxml
+numpy
+playwright
+pymongo
+python-Levenshtein
+redis
+torch
+transformers

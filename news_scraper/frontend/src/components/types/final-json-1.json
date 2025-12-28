@@ -1,0 +1,959 @@
+{
+  "comp-1": {
+    "type": "AlertInsights",
+    "data": [
+      {
+        "id": "1",
+        "title": "VaR limit breached on Desk A",
+        "timestamp": "10:42 AM",
+        "severity": "critical",
+        "icon": "alert-triangle"
+      },
+      {
+        "id": "2",
+        "title": "Counterparty credit rating under review",
+        "timestamp": "Yesterday",
+        "severity": "warning",
+        "icon": "exclamation"
+      }
+    ]
+  },
+  "comp-2": {
+    "type": "EventImpactTimeline",
+    "data": {
+      "dates": [
+        "Jan 1",
+        "Jan 5",
+        "Jan 10",
+        "Jan 15",
+        "Jan 20",
+        "Jan 25",
+        "Jan 30",
+        "Feb 4",
+        "Feb 9",
+        "Feb 14",
+        "Feb 19",
+        "Feb 24",
+        "Feb 29",
+        "Mar 5",
+        "Mar 10",
+        "Mar 15",
+        "Mar 20",
+        "Mar 25",
+        "Mar 30",
+        "Apr 4",
+        "Apr 9",
+        "Apr 14",
+        "Apr 19",
+        "Apr 24",
+        "Apr 29"
+      ],
+      "prices": [
+        13600,
+        13650,
+        13700,
+        13800,
+        13850,
+        13900,
+        14000,
+        14100,
+        14050,
+        13900,
+        13850,
+        13800,
+        13750,
+        13700,
+        13800,
+        13900,
+        14000,
+        14100,
+        14200,
+        14150,
+        14100,
+        14050,
+        14100,
+        14150,
+        14200
+      ],
+      "events": [
+        {
+          "name": "Fed Meeting",
+          "date": "Feb 14",
+          "price": 13900,
+          "priceChange": -150,
+          "priceChangePercent": -1.1,
+          "volumeSpike": "High",
+          "sentimentUp": false
+        },
+        {
+          "name": "CPI Release",
+          "date": "Mar 20",
+          "price": 14000,
+          "priceChange": 200,
+          "priceChangePercent": 1.5,
+          "volumeSpike": "Medium",
+          "sentimentUp": true
+        },
+        {
+          "name": "Earnings Call",
+          "date": "Apr 29",
+          "price": 14200,
+          "priceChange": 100,
+          "priceChangePercent": 0.7,
+          "volumeSpike": "Low",
+          "sentimentUp": true
+        }
+      ]
+    }
+  },
+  "comp-3": {
+    "type": "ExposureWheel",
+    "data": {
+      "riskData": [
+        { "factor": "Market Risk", "exposure": 35, "status": "High" },
+        { "factor": "Credit Risk", "exposure": 25, "status": "Medium" },
+        { "factor": "Operational Risk", "exposure": 15, "status": "Low" },
+        { "factor": "Liquidity Risk", "exposure": 10, "status": "Low" },
+        { "factor": "Legal Risk", "exposure": 8, "status": "Medium" },
+        { "factor": "Reputational Risk", "exposure": 7, "status": "Low" }
+      ]
+    }
+  },
+  "comp-4": {
+    "type": "HoldingsDashboard",
+    "data": {
+      "holdings": [
+        {
+          "ticker": "AAPL",
+          "name": "Apple Inc.",
+          "quantity": 150,
+          "price": 172.25,
+          "plPercent": 1.45,
+          "weight": 15,
+          "var": "$5k",
+          "greeks": 0.5,
+          "liquidity": "High"
+        },
+        {
+          "ticker": "GOOGL",
+          "name": "Alphabet Inc.",
+          "quantity": 50,
+          "price": 140.76,
+          "plPercent": -0.21,
+          "weight": 12,
+          "var": "$4k",
+          "greeks": 0.4,
+          "liquidity": "High"
+        }
+      ]
+    }
+  },
+  "comp-5": {
+    "type": "NewsSentimentStream",
+    "data": {
+      "newsItems": [
+        {
+          "headline": "US CPI beats expectations, raising odds of earlier Fed hike",
+          "source": "Reuters",
+          "timestamp": "2025-11-27T13:45:00Z",
+          "currencyPair": "EUR/USD",
+          "sentimentScore": -0.6,
+          "matchPercentage": 82
+        },
+        {
+          "headline": "BoE signals cautious stance amid slowing UK growth",
+          "source": "Bloomberg",
+          "timestamp": "2025-11-27T12:10:00Z",
+          "currencyPair": "GBP/USD",
+          "sentimentScore": 0.2,
+          "matchPercentage": 64
+        }
+      ]
+    }
+  },
+  "comp-6": {
+    "type": "RateYieldDashboard",
+    "data": {
+      "chartData": [
+        { "date": "2020-01-01", "rate": 1.5, "yield": 1.8 },
+        { "date": "2020-02-01", "rate": 1.6, "yield": 1.9 },
+        { "date": "2020-03-01", "rate": 1.4, "yield": 1.7 },
+        { "date": "2020-04-01", "rate": 1.3, "yield": 1.6 },
+        { "date": "2020-05-01", "rate": 1.5, "yield": 1.8 },
+        { "date": "2020-06-01", "rate": 1.7, "yield": 2.0 }
+      ],
+      "metricCards": [
+        { "title": "Current Rate", "value": "1.7%", "changePercent": "+0.2%" },
+        { "title": "Current Yield", "value": "2.0%", "changePercent": "+0.2%" }
+      ]
+    }
+  },
+  "comp-7": {
+    "type": "AiInsightCard",
+    "data": {
+      "summary": "The AI model has identified a potential risk in the current portfolio due to increased market volatility. It suggests diversifying assets to mitigate potential losses.",
+      "rationalePoints": [
+        "Recent market trends indicate heightened volatility in key sectors.",
+        "Diversification has historically reduced portfolio risk during volatile periods.",
+        "AI analysis shows a correlation between current holdings and market downturns."
+      ]
+    }
+  },
+  "comp-8": {
+    "type": "CorrelationMatrixFXCom",
+    "data": {
+      "labels": ["EUR/USD", "GBP/USD", "USD/JPY", "AUD/USD", "USD/CAD", "USD/CHF", "NZD/USD"],
+      "matrix": [
+        [1.0, 0.85, -0.4, 0.6, -0.3, -0.2, 0.5],
+        [0.85, 1.0, -0.35, 0.55, -0.25, -0.15, 0.45],
+        [-0.4, -0.35, 1.0, -0.2, 0.5, 0.4, -0.3],
+        [0.6, 0.55, -0.2, 1.0, -0.15, -0.1, 0.35],
+        [-0.3, -0.25, 0.5, -0.15, 1.0, 0.3, -0.2],
+        [-0.2, -0.15, 0.4, -0.1, 0.3, 1.0, -0.1],
+        [0.5, 0.45, -0.3, 0.35, -0.2, -0.1, 1.0]
+      ]
+    }
+  },
+  "comp-9": {
+    "type": "PolicyDifferentialDashboard",
+    "data": {
+      "policyData": [
+        {
+          "bank": "European Central Bank",
+          "rate": "4.50%",
+          "bpsChange": 0,
+          "spreadVsFed": "-1.00%",
+          "sentiment": "Neutral"
+        },
+        {
+          "bank": "Bank of Japan",
+          "rate": "-0.10%",
+          "bpsChange": 0,
+          "spreadVsFed": "-5.60%",
+          "sentiment": "Dovish"
+        }
+      ]
+    }
+  },
+  "comp-10": {
+    "type": "SentimentVolatilityChart",
+    "data": [
+      { "ticker": "BTC", "sentiment": -0.7, "volatility": 40 },
+      { "ticker": "GLD", "sentiment": 0.0, "volatility": 13 },
+      { "ticker": "EUR", "sentiment": 0.5, "volatility": 10 },
+      { "ticker": "SPX", "sentiment": 0.8, "volatility": 35 }
+    ]
+  },
+  "comp-11": {
+    "type": "CorrelationMatrix",
+    "data": {
+      "categories": ["Equity", "Rates", "Credit", "Cmdty", "FX"],
+      "correlationData": [
+        { "row": "Equity", "col": "Equity", "value": 1.0 },
+        { "row": "Equity", "col": "Rates", "value": 0.12 },
+        { "row": "Equity", "col": "Credit", "value": 0.35 },
+        { "row": "Equity", "col": "Cmdty", "value": -0.45 },
+        { "row": "Equity", "col": "FX", "value": 0.05 },
+        { "row": "Rates", "col": "Equity", "value": 0.12 },
+        { "row": "Rates", "col": "Rates", "value": 1.0 },
+        { "row": "Rates", "col": "Credit", "value": 0.78 },
+        { "row": "Rates", "col": "Cmdty", "value": -0.21 },
+        { "row": "Rates", "col": "FX", "value": 0.55 },
+        { "row": "Credit", "col": "Equity", "value": 0.35 },
+        { "row": "Credit", "col": "Rates", "value": 0.78 },
+        { "row": "Credit", "col": "Credit", "value": 1.0 },
+        { "row": "Credit", "col": "Cmdty", "value": -0.09 },
+        { "row": "Credit", "col": "FX", "value": 0.29 },
+        { "row": "Cmdty", "col": "Equity", "value": -0.45 },
+        { "row": "Cmdty", "col": "Rates", "value": -0.21 },
+        { "row": "Cmdty", "col": "Credit", "value": -0.09 },
+        { "row": "Cmdty", "col": "Cmdty", "value": 1.0 },
+        { "row": "Cmdty", "col": "FX", "value": -0.82 },
+        { "row": "FX", "col": "Equity", "value": 0.05 },
+        { "row": "FX", "col": "Rates", "value": 0.55 },
+        { "row": "FX", "col": "Credit", "value": 0.29 },
+        { "row": "FX", "col": "Cmdty", "value": -0.82 },
+        { "row": "FX", "col": "FX", "value": 1.0 }
+      ]
+    }
+  },
+  "comp-12": {
+    "type": "OptimizationHeatMap",
+    "data": {
+      "xAxisLabel": "Param 1 (e.g., Moving Avg Window)",
+      "yAxisLabel": "Param 2 (e.g., Stop Loss %)",
+      "gridCols": 5,
+      "gridRows": 5,
+      "heatmapData": [
+        { "x": 2, "y": 0, "value": 1.5 },
+        { "x": 3, "y": 0, "value": 1.6 },
+        { "x": 1, "y": 1, "value": 1.4 },
+        { "x": 2, "y": 1, "value": 1.8 },
+        { "x": 3, "y": 1, "value": 1.7 },
+        { "x": 4, "y": 1, "value": null },
+        { "x": 2, "y": 2, "value": 1.2 },
+        { "x": 1, "y": 3, "value": null },
+        { "x": 2, "y": 3, "value": null },
+        { "x": 2, "y": 4, "value": null }
+      ]
+    }
+  },
+  "comp-13": {
+    "type": "TopMovers",
+    "data": {
+      "gainers": [
+        { "ticker": "US10Y", "name": "US 10 Year Treasury", "changePercent": 0.45, "price": 101.25 },
+        { "ticker": "EURUSD", "name": "Euro to US Dollar", "changePercent": 0.30, "price": 1.125 },
+        { "ticker": "GOLD", "name": "Gold Spot", "changePercent": 0.25, "price": 1850.75 }
+      ],
+      "losers": [
+        { "ticker": "US30Y", "name": "US 30 Year Treasury", "changePercent": -0.5, "price": 99.8 },
+        { "ticker": "GBPUSD", "name": "British Pound to US Dollar", "changePercent": -0.35, "price": 1.31 },
+        { "ticker": "OIL", "name": "Crude Oil WTI", "changePercent": -0.2, "price": 70.25 }
+      ]
+    }
+  },
+  "comp-14": {
+    "type": "HoldingsDashboard",
+    "data": {
+      "assetClasses": [
+        {
+          "name": "Equities",
+          "percentage": 40,
+          "change": 1.2
+        },
+        {
+          "name": "Bonds",
+          "percentage": 30,
+          "change": 0.3
+        },
+        {
+          "name": "Commodities",
+          "percentage": 15,
+          "change": -0.4
+        },
+        {
+          "name": "Crypto",
+          "percentage": 10,
+          "change": -2.1
+        },
+        {
+          "name": "FX",
+          "percentage": 5,
+          "change": 0.1
+        }
+      ]
+    }
+  },
+  "comp-15": {
+    "type": "AttributionBySector",
+    "data": {
+      "sectors": [
+        {
+          "name": "Tech",
+          "value": 1.5
+        },
+        {
+          "name": "Energy",
+          "value": -1.8
+        },
+        {
+          "name": "Finance",
+          "value": -0.5
+        },
+        {
+          "name": "Health",
+          "value": -1.2
+        },
+        {
+          "name": "Industrials",
+          "value": -1.0
+        },
+        {
+          "name": "Total",
+          "value": 3.0,
+          "isTotal": true
+        }
+      ]
+    }
+  },
+  "comp-16": {
+    "type": "risksensitivity",
+    "data": [
+      {
+        "instrument": "EUR/USD Opt",
+        "dv01": "$4.5k",
+        "pvbp": 0.045,
+        "vega": 12.5,
+        "gamma": 0.2,
+        "theta": -0.8
+      },
+      {
+        "instrument": "US 10Y Note",
+        "dv01": "$12.2k",
+        "pvbp": 0.122,
+        "vega": "N/A",
+        "gamma": 0.1,
+        "theta": -0.5
+      },
+      {
+        "instrument": "GBP/JPY Swap",
+        "dv01": "$8.1k",
+        "pvbp": 0.081,
+        "vega": 25.0,
+        "gamma": 0.4,
+        "theta": -1.2
+      },
+      {
+        "instrument": "DE 5Y Bund",
+        "dv01": "$6.7k",
+        "pvbp": 0.067,
+        "vega": "N/A",
+        "gamma": 0.08,
+        "theta": -0.3
+      },
+      {
+        "instrument": "AUD Futures",
+        "dv01": "$2.3k",
+        "pvbp": 0.023,
+        "vega": 8.1,
+        "gamma": 0.15,
+        "theta": -0.6
+      }
+    ]
+  },
+  "comp-17": {
+    "type": "riskmap",
+    "data": {
+      "title": "Risk Map",
+      "subtitle": "Sector x Risk Level",
+      "categories": ["Rates", "FX", "Credit", "Liquidity", "Market"],
+      "rows": [
+        {
+          "sector": "Banks",
+          "risks": [
+            { "category": "Rates", "level": "low" },
+            { "category": "FX", "level": "low" },
+            { "category": "Credit", "level": "high" },
+            { "category": "Liquidity", "level": "low" },
+            { "category": "Market", "level": "low" }
+          ]
+        },
+        {
+          "sector": "Energy",
+          "risks": [
+            { "category": "Rates", "level": "high" },
+            { "category": "FX", "level": "low" },
+            { "category": "Credit", "level": "low" },
+            { "category": "Liquidity", "level": "low" },
+            { "category": "Market", "level": "low" }
+          ]
+        },
+        {
+          "sector": "Tech",
+          "risks": [
+            { "category": "Rates", "level": "low" },
+            { "category": "FX", "level": "high" },
+            { "category": "Credit", "level": "low" },
+            { "category": "Liquidity", "level": "low" },
+            { "category": "Market", "level": "low" }
+          ]
+        },
+        {
+          "sector": "Govt",
+          "risks": [
+            { "category": "Rates", "level": "low" },
+            { "category": "FX", "level": "low" },
+            { "category": "Credit", "level": "low" },
+            { "category": "Liquidity", "level": "medium" },
+            { "category": "Market", "level": "low" }
+          ]
+        },
+        {
+          "sector": "Healthcare",
+          "risks": [
+            { "category": "Rates", "level": "low" },
+            { "category": "FX", "level": "low" },
+            { "category": "Credit", "level": "low" },
+            { "category": "Liquidity", "level": "high" },
+            { "category": "Market", "level": "low" }
+          ]
+        }
+      ]
+    }
+  },
+  "comp-18": {
+    "type": "liquidationcost",
+    "data": {
+      "title": "Liquidation Cost",
+      "subtitle": "Estimated Transaction Impact",
+      "items": [
+        {
+          "component": "Bid-Ask Spread",
+          "spreadCost": 4,
+          "impactCost": 12,
+          "totalEstCost": 15000,
+          "isTotal": false
+        },
+        {
+          "component": "Market Impact",
+          "spreadCost": 6,
+          "impactCost": 18,
+          "totalEstCost": 20000,
+          "isTotal": false
+        },
+        {
+          "component": "Timing Risk",
+          "spreadCost": 2,
+          "impactCost": 8,
+          "totalEstCost": 10000,
+          "isTotal": false
+        },
+        {
+          "component": "Total Liquidation Cost",
+          "spreadCost": 12,
+          "impactCost": 38,
+          "totalEstCost": 45000,
+          "isTotal": true
+        }
+      ]
+    }
+  },
+  "comp-19": {
+    "type": "compliancestatus",
+    "data": {
+      "title": "Compliance Status",
+      "subtitle": "Exposure vs Limits",
+      "rules": [
+        {
+          "ruleName": "Single Issuer Limit",
+          "actualPercent": 4.5,
+          "limitPercent": 5.0
+        },
+        {
+          "ruleName": "High Yield Cap",
+          "actualPercent": 5.2,
+          "limitPercent": 5.0
+        },
+        {
+          "ruleName": "Emerging Markets",
+          "actualPercent": 15.0,
+          "limitPercent": 20.0
+        },
+        {
+          "ruleName": "Sector Concentration",
+          "actualPercent": 24.5,
+          "limitPercent": 25.0
+        }
+      ]
+    }
+  },
+  "comp-20": {
+    "type": "liquidityprofile",
+    "data": [
+      {
+        "id": "1",
+        "name": "US Treasury 10Y",
+        "spread": 15,
+        "depth": 95
+      },
+      {
+        "id": "2",
+        "name": "EUR/USD",
+        "spread": 20,
+        "depth": 98
+      },
+      {
+        "id": "3",
+        "name": "Corporate Bond AAA",
+        "spread": 25,
+        "depth": 75
+      },
+      {
+        "id": "4",
+        "name": "S&P 500 Futures",
+        "spread": 35,
+        "depth": 60
+      },
+      {
+        "id": "5",
+        "name": "EM Sovereign Bond",
+        "spread": 50,
+        "depth": 45
+      },
+      {
+        "id": "6",
+        "name": "High Yield Corp",
+        "spread": 65,
+        "depth": 40
+      },
+      {
+        "id": "7",
+        "name": "Distressed Debt",
+        "spread": 55,
+        "depth": 25
+      }
+    ]
+  },
+  "comp-21": {
+    "type": "creditspreads",
+    "data": {
+      "title": "Credit Spreads",
+      "subtitle": "Spread Movements (bps)",
+      "riskLimit": 235,
+      "data": [
+        { "month": "Jan", "value": 35 },
+        { "month": "Feb", "value": 60 },
+        { "month": "Mar", "value": 110 },
+        { "month": "Apr", "value": 90 },
+        { "month": "May", "value": 130 },
+        { "month": "Jun", "value": 145 }
+      ]
+    }
+  },
+  "comp-22": {
+    "type": {
+      "name": "allocationvspolicy",
+      "description": "Asset allocation comparison against investment policy statement (IPS) targets",
+      "schema": {
+        "assetClass": {
+          "type": "string",
+          "description": "Name of the asset class"
+        },
+        "targetPercent": {
+          "type": "number",
+          "description": "Target allocation percentage from IPS"
+        },
+        "actualPercent": {
+          "type": "number",
+          "description": "Actual current allocation percentage"
+        }
+      }
+    },
+    "data": [
+      {
+        "assetClass": "Domestic Equities",
+        "targetPercent": 40,
+        "actualPercent": 45.5
+      },
+      {
+        "assetClass": "International Equities",
+        "targetPercent": 20,
+        "actualPercent": 18
+      },
+      {
+        "assetClass": "Fixed Income",
+        "targetPercent": 30,
+        "actualPercent": 31.5
+      },
+      {
+        "assetClass": "Alternatives",
+        "targetPercent": 5,
+        "actualPercent": 9
+      },
+      {
+        "assetClass": "Cash & Equivalents",
+        "targetPercent": 5,
+        "actualPercent": -4
+      }
+    ]
+  },
+  "comp-23": {
+    "type": "almmatrix",
+    "data": {
+      "durationGapPercent": 1.2,
+      "timeBuckets": [
+        {
+          "period": "0-1Y",
+          "assets": 150000000,
+          "liabilities": 120000000
+        },
+        {
+          "period": "1-3Y",
+          "assets": 250000000,
+          "liabilities": 260000000
+        },
+        {
+          "period": "3-5Y",
+          "assets": 300000000,
+          "liabilities": 280000000
+        },
+        {
+          "period": "5Y+",
+          "assets": 400000000,
+          "liabilities": 350000000
+        }
+      ]
+    }
+  },
+  "comp-24": {
+    "type": "cashflowforecast",
+    "data": {
+      "weekly": [
+        {
+          "period": "W1",
+          "inflow": 2000000,
+          "outflow": -1500000,
+          "netPosition": 500000
+        },
+        {
+          "period": "W2",
+          "inflow": 5500000,
+          "outflow": -6000000,
+          "netPosition": 10000000
+        },
+        {
+          "period": "W3",
+          "inflow": 4500000,
+          "outflow": -5500000,
+          "netPosition": 8000000
+        },
+        {
+          "period": "W4",
+          "inflow": 6000000,
+          "outflow": -4000000,
+          "netPosition": 12000000
+        }
+      ],
+      "monthly": [
+        {
+          "period": "Jan",
+          "inflow": 8000000,
+          "outflow": -6000000,
+          "netPosition": 2000000
+        },
+        {
+          "period": "Feb",
+          "inflow": 12000000,
+          "outflow": -8000000,
+          "netPosition": 6000000
+        },
+        {
+          "period": "Mar",
+          "inflow": 15000000,
+          "outflow": -10000000,
+          "netPosition": 11000000
+        },
+        {
+          "period": "Apr",
+          "inflow": 10000000,
+          "outflow": -12000000,
+          "netPosition": 9000000
+        },
+        {
+          "period": "May",
+          "inflow": 18000000,
+          "outflow": -9000000,
+          "netPosition": 18000000
+        },
+        {
+          "period": "Jun",
+          "inflow": 14000000,
+          "outflow": -11000000,
+          "netPosition": 21000000
+        }
+      ],
+      "yearly": [
+        {
+          "period": "2020",
+          "inflow": 80000000,
+          "outflow": -70000000,
+          "netPosition": 10000000
+        },
+        {
+          "period": "2021",
+          "inflow": 95000000,
+          "outflow": -80000000,
+          "netPosition": 25000000
+        },
+        {
+          "period": "2022",
+          "inflow": 110000000,
+          "outflow": -95000000,
+          "netPosition": 40000000
+        },
+        {
+          "period": "2023",
+          "inflow": 125000000,
+          "outflow": -100000000,
+          "netPosition": 65000000
+        },
+        {
+          "period": "2024",
+          "inflow": 140000000,
+          "outflow": -110000000,
+          "netPosition": 95000000
+        }
+      ]
+    }
+  },
+  "comp-25": {
+    "type": "liquiditybuffer",
+    "data": {
+      "currentPercent": 115,
+      "targetPercent": 100,
+      "maxPercent": 150
+    }
+  },
+  "comp-26": {
+    "type": "capitalefficiency",
+    "data": {
+      "title": "Capital Efficiency",
+      "subtitle": "RWA vs Capital",
+      "data": [
+        {
+          "category": "Credit Risk",
+          "rwa": 125,
+          "capital": 85
+        },
+        {
+          "category": "Market Risk",
+          "rwa": 95,
+          "capital": 70
+        },
+        {
+          "category": "Op Risk",
+          "rwa": 55,
+          "capital": 40
+        },
+        {
+          "category": "CVA",
+          "rwa": 80,
+          "capital": 60
+        }
+      ]
+    }
+  },
+  "comp-27": {
+    "type": "optimization",
+    "data": {
+      "title": "Optimization",
+      "subtitle": "Rebalance Suggestions",
+      "description": "Based on your target Sharpe Ratio, the following rebalancing is recommended:",
+      "recommendations": [
+        {
+          "id": "rec-1",
+          "action": "reduce",
+          "description": "Reduce US Tech exposure by 5% to cap volatility."
+        },
+        {
+          "id": "rec-2",
+          "action": "increase",
+          "description": "Increase Duration in Govt Bonds to match liability profile."
+        },
+        {
+          "id": "rec-3",
+          "action": "allocate",
+          "description": "Allocate 2% to Emerging Market Equities for diversification."
+        }
+      ]
+    }
+  },
+  "comp-28": {
+    "type": "stresstestresults",
+    "data": {
+      "capitalHitScenarios": [
+        {
+          "name": "Base Case",
+          "percentage": 0
+        },
+        {
+          "name": "Mild Recession",
+          "percentage": -5
+        },
+        {
+          "name": "Severe Crash",
+          "percentage": -12
+        }
+      ],
+      "stressScenarios": [
+        {
+          "scenario": "FX Shock +20%",
+          "lossPercent": -2.4,
+          "capitalHit": -15000000
+        },
+        {
+          "scenario": "Interest Rate Hike",
+          "lossPercent": -3.1,
+          "capitalHit": -22000000
+        },
+        {
+          "scenario": "Market Downturn",
+          "lossPercent": -6.8,
+          "capitalHit": -45000000
+        }
+      ]
+    }
+  },
+  "comp-29": {
+    "type": "comparisonview",
+    "data": {
+      "title": "Comparison View",
+      "subtitle": "Instrument Comparison",
+      "assetA": {
+        "label": "Asset A",
+        "name": "US 10Y Treasury",
+        "yield": 4.25,
+        "duration": 8.5,
+        "convexity": 0.4
+      },
+      "assetB": {
+        "label": "Asset B",
+        "name": "German Bund 10Y",
+        "yield": 2.45,
+        "duration": 8.9,
+        "convexity": 0.5
+      }
+    }
+  },
+  "comp-30": {
+    "type": "riskallocation",
+    "data": {
+      "title": "Risk Allocation",
+      "subtitle": "Risk Parity Contribution",
+      "allocations": [
+        {
+          "name": "Equities",
+          "percentage": 45,
+          "color": "#2dd4bf"
+        },
+        {
+          "name": "Rates",
+          "percentage": 25,
+          "color": "#14b8a6"
+        },
+        {
+          "name": "Credit",
+          "percentage": 20,
+          "color": "#0d9488"
+        },
+        {
+          "name": "Commodities",
+          "percentage": 10,
+          "color": "#0f766e"
+        }
+      ]
+    }
+  },
+  "comp-31": {
+    "type": "adjustweight",
+    "data": {
+      "title": "Adjust Weight",
+      "label": "Target Allocation (%)",
+      "initialValue": 45,
+      "min": 0,
+      "max": 100
+    }
+  },
+  "comp-32": {
+    "type": "scenarioadjustment",
+    "data": {
+      "label": "Interest Rate Shift",
+      "description": "Adjust the baseline interest rate to simulate market changes.",
+      "value": 25,
+      "min": -100,
+      "max": 100,
+      "unit": "bps"
+    }
+  }
+}
